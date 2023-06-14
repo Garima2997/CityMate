@@ -1,0 +1,26 @@
+#Changing the server port
+server.port=7070
+#database configuration:mysql
+#first db
+spring.datasource.url=jdbc:mysql://localhost:3306/citymate_tourism?useSSL=false&allowPublicKeyRetrieval=true
+#spring.datasource.url=mysql://localhost:3306/myhiber?useSSL=false&allowPublicKeyRetrieval=true
+spring.datasource.username=root
+spring.datasource.password=Roop@24
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+##hibernate configuration
+#table khudse create hojaye so below first
+spring.jpa.hibernate.ddl-auto=update  
+#querry fire ho vo dikh jaye so below first
+spring.jpa.show-sql=true
+
+#Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.MySQL8Dialect
+#Ctrl+Shift+T type:mysql->choose dialect ;then copy package name and class name here above 
+
+
+# App Properties , secret key can be later replaced by encrypted value
+com.app.jwtSecret=myAppSecretKey
+# expiration time out 24 hours
+com.app.jwtExpirationMs= 86400000
+Access-Control-Allow-Origin: http://localhost:3000

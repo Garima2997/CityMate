@@ -1,0 +1,5 @@
+package com.citymate.mail.service;
+
+public class MailService {
+
+}

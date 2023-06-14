@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="Citymate_Entertainment"/>
+<aop-project name="Citymate_Education"/>
+<aop-project name="Citymate_Tourism"/>
+<aop-project name="AdminLogin"/>
+<aop-project name="CityMate_Event"/>
+<aop-project name="Citymate_Health"/>
+</aop-reference-model>

@@ -1,0 +1,5 @@
+package com.citymate.pojos;
+
+public class UserEmail {
+
+}

@@ -1,0 +1,161 @@
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #ddd;
+    /* box-sizing: border-box; */
+  }
+   
+  code {
+    font-family: Georgia, serif;
+  }
+
+  .jumbotron-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .jumbotron-text {
+    position:relative;
+    z-index:2;
+    color: aliceblue;
+    background:rgba(0,0,0,0.2);
+    padding:2rem;
+    border:1px solid rgba(0,0,0,0.1);
+    border-radius:3px;
+  }
+   
+  /* card style start */
+   
+  /* .card-body {
+    padding: 15px;
+  } */
+   
+  .card-width {
+    overflow: hidden;
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+   
+  /* .card-text {
+    word-wrap: break-word;
+  } */
+   
+  /* card style end */
+   
+  .slide img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    margin: 0 auto;
+  }
+  
+  .slide {
+    transform: scale(0.7);
+    transition: transform 300ms;
+    opacity: 0.5;
+  }
+  
+  .activeSlide {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .arrow {
+    background-color: #fff;
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .arrow {
+    transition: color 300ms;
+  }
+  
+  .arrow :hover {
+    color: #27b914;
+  }
+  
+  .next {
+    right: 0%;
+    top: 50%;
+  }
+  
+  .prev {
+    left: 0%;
+    top: 50%;
+  } 
+
+
+  .ribbon {
+    position: relative;
+    float: left;
+    margin-bottom: 10px;
+    background-size: cover;
+    color: white;
+  }
+  .ribbon:nth-child(even) {
+    margin-right: 4%;
+  }
+  @media (max-width: 700px) {
+    .ribbon {
+      width: 100%;
+    }
+    .ribbon:nth-child(even) {
+      margin-right: 0%;
+    }
+  }
+
+  .ribbon-text {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 15px;
+    position: absolute;
+    left: -8px;
+    top: 20px;
+    background: #59324C;
+  }
+  .ribbon-text:before, .ribbon-text:after {
+    content: "";
+    position: absolute;
+  }
+  .ribbon-text:before {
+    height: 0;
+    width: 0;
+    top: -8.5px;
+    left: 0.1px;
+    border-bottom: 9px solid black;
+    border-left: 9px solid transparent;
+  }
+  .ribbon-text:after {
+    height: 0;
+    width: 0;
+    right: -14.5px;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-left: 15px solid #59324C;
+  }
+
+
+
+  .register-color{
+    background-color: #59324C;
+  }
+
+
+  /* Admin page css  */
+  .component-space { 
+    margin-bottom: 25px ; 
+  }
+
+  .toast {
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, 0px);
+    z-index: 9999;
+}

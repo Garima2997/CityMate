@@ -1,0 +1,202 @@
+package com.citymate.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailException;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.citymate.dto.MessageResponseDTO;
+import com.citymate.mail.UserEmail;
+import com.citymate.mail.service.MailService;
+import com.citymate.pojos.User;
+import com.citymate.service.IUserService;
+
+@RestController
+@RequestMapping("/user")
+@CrossOrigin
+public class UserController {
+
+	@Autowired
+	private IUserService userService;
+	
+	@Autowired
+	private UserEmail user;
+	
+	@Autowired
+	private MailService notificationService;
+
+	@PostMapping
+	public ResponseEntity<?> registerUser(@RequestBody User u) {
+		System.out.println("in add new user " + u + " " + u.getEvent());
+		userService.registerUser(u);
+		return ResponseEntity.ok(new MessageResponseDTO("Registration Successfull!!"));
+	}
+	
+	@PostMapping("/mail")
+	public 
+	  .   ____          _            __ _ _
+	  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+	 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+	  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+	   '  |____| .__|_| |_|_| |_\__, | / / / /
+	  =========|_|==============|___/=/_/_/_/
+	  :: Spring Boot ::                (v2.4.3)
+
+	 2021-03-20 12:38:21.520  INFO 8976 --- [  restartedMain] com.citymate.CityMateApplication         : Starting CityMateApplication using Java 1.8.0_271 on LAPTOP-MRN8TPQA with PID 8976 (D:\CityMateProject\CityMate\CityMate_Event\target\classes started by Garima in D:\CityMateProject\CityMate\CityMate_Event)
+	 2021-03-20 12:38:21.525  INFO 8976 --- [  restartedMain] com.citymate.CityMateApplication         : No active profile set, falling back to default profiles: default
+	 2021-03-20 12:38:21.595  INFO 8976 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+	 2021-03-20 12:38:21.595  INFO 8976 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+	 2021-03-20 12:38:22.519  INFO 8976 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+	 2021-03-20 12:38:22.592  INFO 8976 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 2 JPA repository interfaces.
+	 2021-03-20 12:38:23.355  INFO 8976 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7272 (http)
+	 2021-03-20 12:38:23.367  INFO 8976 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+	 2021-03-20 12:38:23.367  INFO 8976 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+	 2021-03-20 12:38:23.504  INFO 8976 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+	 2021-03-20 12:38:23.505  INFO 8976 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1908 ms
+	 2021-03-20 12:38:23.913  INFO 8976 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+	 2021-03-20 12:38:24.014  INFO 8976 --- [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+	 2021-03-20 12:38:24.265  INFO 8976 --- [  restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+	 2021-03-20 12:38:24.429  INFO 8976 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+	 2021-03-20 12:38:25.932  INFO 8976 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+	 2021-03-20 12:38:26.046  INFO 8976 --- [  restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+	 in events constructor
+	 2021-03-20 12:38:27.653  INFO 8976 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+	 2021-03-20 12:38:27.683  INFO 8976 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+	 2021-03-20 12:38:27.760  INFO 8976 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+	 2021-03-20 12:38:28.579  INFO 8976 --- [  restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+	 2021-03-20 12:38:29.028  INFO 8976 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7272 (http) with context path ''
+	 2021-03-20 12:38:29.046  INFO 8976 --- [  restartedMain] com.citymate.CityMateApplication         : Started CityMateApplication in 8.044 seconds (JVM running for 10.073)
+	 2021-03-20 12:38:52.829  INFO 8976 --- [nio-7272-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+	 2021-03-20 12:38:52.829  INFO 8976 --- [nio-7272-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+	 2021-03-20 12:38:52.831  INFO 8976 --- [nio-7272-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+	 2021-03-20 12:38:52.938  WARN 8976 --- [nio-7272-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.lang.String com.citymate.controller.UserController.send(com.citymate.mail.UserEmail)]
+	 org.springframework.mail.MailAuthenticationException: Authentication failed; nested exception is javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
+	 535 5.7.8  https://support.google.com/mail/?p=BadCredentials f11sm7127038pga.34 - gsmtp
+
+	 2021-03-20 12:53:52.477  INFO 8976 --- [       Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+	 2021-03-20 12:53:52.497  INFO 8976 --- [       Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+	 2021-03-20 12:53:52.513  INFO 8976 --- [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+	 2021-03-20 12:53:52.533  INFO 8976 --- [       Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+	   .   ____          _            __ _ _
+	  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+	 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+	  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+	   '  |____| .__|_| |_|_| |_\__, | / / / /
+	  =========|_|==============|___/=/_/_/_/
+	  :: Spring Boot ::                (v2.4.3)
+
+	 2021-03-20 12:53:52.810  INFO 8976 --- [  restartedMain] com.citymate.CityMateApplication         : Starting CityMateApplication using Java 1.8.0_271 on LAPTOP-MRN8TPQA with PID 8976 (D:\CityMateProject\CityMate\CityMate_Event\target\classes started by Garima in D:\CityMateProject\CityMate\CityMate_Event)
+	 2021-03-20 12:53:52.811  INFO 8976 --- [  restartedMain] com.citymate.CityMateApplication         : No active profile set, falling back to default profiles: default
+	 2021-03-20 12:53:53.257  INFO 8976 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+	 2021-03-20 12:53:53.285  INFO 8976 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 2 JPA repository interfaces.
+	 2021-03-20 12:53:53.560  INFO 8976 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7272 (http)
+	 2021-03-20 12:53:53.561  INFO 8976 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+	 2021-03-20 12:53:53.562  INFO 8976 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+	 2021-03-20 12:53:53.603  INFO 8976 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+	 2021-03-20 12:53:53.603  INFO 8976 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 787 ms
+	 2021-03-20 12:53:53.670  INFO 8976 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+	 2021-03-20 12:53:53.681  INFO 8976 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+	 2021-03-20 12:53:53.693  INFO 8976 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+	 2021-03-20 12:53:53.694  INFO 8976 --- [  restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+	 in events constructor
+	 2021-03-20 12:53:53.823  INFO 8976 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+	 2021-03-20 12:53:53.823  INFO 8976 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+	 2021-03-20 12:53:53.849  INFO 8976 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+	 2021-03-20 12:53:54.095  INFO 8976 --- [  restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+	 2021-03-20 12:53:54.225  INFO 8976 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7272 (http) with context path ''
+	 2021-03-20 12:53:54.234  INFO 8976 --- [  restartedMain] com.citymate.CityMateApplication         : Started CityMateApplication in 1.468 seconds (JVM running for 935.262)
+	 2021-03-20 12:53:54.240  INFO 8976 --- [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+	 2021-03-20 12:54:01.868  INFO 8976 --- [nio-7272-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+	 2021-03-20 12:54:01.869  INFO 8976 --- [nio-7272-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+	 2021-03-20 12:54:01.872  INFO 8976 --- [nio-7272-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+	 2021-03-20 12:56:06.222  INFO 8976 --- [       Thread-9] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+	 2021-03-20 12:56:06.223  INFO 8976 --- [       Thread-9] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+	 2021-03-20 12:56:06.226  INFO 8976 --- [       Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+	 2021-03-20 12:56:06.233  INFO 8976 --- [       Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+
+	   .   ____          _            __ _ _
+	  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+	 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+	  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+	   '  |____| .__|_| |_|_| |_\__, | / / / /
+	  =========|_|==============|___/=/_/_/_/
+	  :: Spring Boot ::                (v2.4.3)
+
+	 2021-03-20 12:56:06.493  INFO 8976 --- [  restartedMain] com.citymate.CityMateApplication         : Starting CityMateApplication using Java 1.8.0_271 on LAPTOP-MRN8TPQA with PID 8976 (D:\CityMateProject\CityMate\CityMate_Event\target\classes started by Garima in D:\CityMateProject\CityMate\CityMate_Event)
+	 2021-03-20 12:56:06.494  INFO 8976 --- [  restartedMain] com.citymate.CityMateApplication         : No active profile set, falling back to default profiles: default
+	 2021-03-20 12:56:06.836  INFO 8976 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+	 2021-03-20 12:56:06.861  INFO 8976 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 25 ms. Found 2 JPA repository interfaces.
+	 2021-03-20 12:56:07.125  INFO 8976 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7272 (http)
+	 2021-03-20 12:56:07.126  INFO 8976 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+	 2021-03-20 12:56:07.126  INFO 8976 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+	 2021-03-20 12:56:07.163  INFO 8976 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+	 2021-03-20 12:56:07.163  INFO 8976 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 663 ms
+	 2021-03-20 12:56:07.232  INFO 8976 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+	 2021-03-20 12:56:07.240  INFO 8976 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+	 2021-03-20 12:56:07.248  INFO 8976 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+	 2021-03-20 12:56:07.248  INFO 8976 --- [  restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+	 in events constructor
+	 2021-03-20 12:56:07.358  INFO 8976 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+	 2021-03-20 12:56:07.359  INFO 8976 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+	 2021-03-20 12:56:07.386  INFO 8976 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+	 2021-03-20 12:56:07.629  INFO 8976 --- [  restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+	 2021-03-20 12:56:07.750  INFO 8976 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7272 (http) with context path ''
+	 2021-03-20 12:56:07.756  INFO 8976 --- [  restartedMain] com.citymate.CityMateApplication         : Started CityMateApplication in 1.323 seconds (JVM running for 1068.784)
+	 2021-03-20 12:56:07.758  INFO 8976 --- [  restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+	 2021-03-20 12:56:22.939  INFO 8976 --- [      Thread-14] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+	 2021-03-20 12:56:22.940  INFO 8976 --- [      Thread-14] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+	 2021-03-20 12:56:22.942  INFO 8976 --- [      Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+	 2021-03-20 12:56:22.949  INFO 8976 --- [      Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+
+	   .   ____          _            __ _ _
+	  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+	 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+	  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+	   '  |____| .__|_| |_|_| |_\__, | / / / /
+	  =========|_|==============|___/=/_/_/_/
+	  :: Spring Boot ::                (v2.4.3)
+
+	 2021-03-20 12:56:23.230  INFO 8976 --- [  restartedMain] com.citymate.CityMateApplication         : Starting CityMateApplication using Java 1.8.0_271 on LAPTOP-MRN8TPQA with PID 8976 (D:\CityMateProject\CityMate\CityMate_Event\target\classes started by Garima in D:\CityMateProject\CityMate\CityMate_Event)
+	 2021-03-20 12:56:23.230  INFO 8976 --- [  restartedMain] com.citymate.CityMateApplication         : No active profile set, falling back to default profiles: default
+	 2021-03-20 12:56:23.532  INFO 8976 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+	 2021-03-20 12:56:23.553  INFO 8976 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 2 JPA repository interfaces.
+	 2021-03-20 12:56:23.708  INFO 8976 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 7272 (http)
+	 2021-03-20 12:56:23.710  INFO 8976 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+	 2021-03-20 12:56:23.710  INFO 8976 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+	 2021-03-20 12:56:23.743  INFO 8976 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+	 2021-03-20 12:56:23.743  INFO 8976 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 508 ms
+	 2021-03-20 12:56:23.800  INFO 8976 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+	 2021-03-20 12:56:23.807  INFO 8976 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+	 2021-03-20 12:56:23.813  INFO 8976 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+	 2021-03-20 12:56:23.814  INFO 8976 --- [  restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+	 in events constructor
+	 2021-03-20 12:56:23.917  INFO 8976 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+	 2021-03-20 12:56:23.917  INFO 8976 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+	 2021-03-20 12:56:23.938  INFO 8976 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+	 2021-03-20 12:56:24.139  INFO 8976 --- [  restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+	 2021-03-20 12:56:24.268  INFO 8976 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 7272 (http) with context path ''
+	 2021-03-20 12:56:24.274  INFO 8976 --- [  restartedMain] com.citymate.CityMateApplication         : Started CityMateApplication in 1.089 seconds (JVM running for 1085.302)
+ send(@RequestBody UserEmail userEmail) {
+
+		/*
+		 * Creating a User with the help of User class that we have declared and setting
+		 * Email address of the sender.
+		 */
+		user.setEmailAddress(userEmail.getEmailAddress());  //Receiver's email address
+		/*
+		 * Here we will call sendEmail() for Sending mail to the sender.
+		 */
+		try {
+			notificationService.sendEmail(user);
+		} catch (MailException mailException) {
+			System.out.println(mailException);
+		}
+		return ResponseEntity.ok(new MessageResponseDTO("Confirmation Mail is sent to youe email Id. Please Check. Thankyou"));
+	}
+
+}

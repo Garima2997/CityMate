@@ -1,0 +1,18 @@
+.card-background {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 2px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    box-shadow: 10px 10px 15px rgba(110, 71, 53, 0.3);
+    transition: .5s;
+    cursor: pointer;
+  }
+
+.card-background:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(110, 71, 53, 0.3), 0 4px 8px rgba(0,0,0,.06);
+}
+

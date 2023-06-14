@@ -1,0 +1,17 @@
+
+
+.form-bg {
+   width: 800px;
+   padding: 10px;
+   margin: 0 auto;
+   border-radius: 0.3em;
+   background-color: #e6ecd9;
+   font-family: 'PT Sans', sans-serif; font-size: 10pt
+}
+.hosp_form{
+    background-image: url('/src/Components/HealthPage/images/img1.jpg');
+    
+    }
+ .pharm_form{
+   background-image: url('/src/Components/HealthPage/images/img2.jpeg');
+   }

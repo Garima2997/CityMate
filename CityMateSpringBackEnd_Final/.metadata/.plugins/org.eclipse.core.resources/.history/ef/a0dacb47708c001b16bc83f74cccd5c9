@@ -1,0 +1,111 @@
+package com.citymate.pojos;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class School {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	private String schoolName;
+	private String principalName;
+	private String boardName;
+	private String schoolCategory;
+	private String location;
+	private String telephoneNo;
+	@Column(name="img_path")
+	private String imgPath;
+	@Column(name="school_website")
+	private String schoolWebsite;
+	public School() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public School(String schoolName, String principalName, String boardName, String schoolCategory, String location,
+			String telephoneNo,String imgPath,String schoolWebsite) {
+		super();
+		this.schoolName = schoolName;
+		this.principalName = principalName;
+		this.boardName = boardName;
+		this.schoolCategory = schoolCategory;
+		this.location = location;
+		this.telephoneNo = telephoneNo;
+		this.imgPath =imgPath;
+		this.schoolWebsite=schoolWebsite;
+	}
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getSchoolName() {
+		return schoolName;
+	}
+	public void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
+	}
+	public String getPrincipalName() {
+		return principalName;
+	}
+	public void setPrincipalName(String principalName) {
+		this.principalName = principalName;
+	}
+	public String getBoardName() {
+		return boardName;
+	}
+	public void setBoardName(String boardName) {
+		this.boardName = boardName;
+	}
+	public String getSchoolCategory() {
+		return schoolCategory;
+	}
+	public void setSchoolCategory(String schoolCategory) {
+		this.schoolCategory = schoolCategory;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public String getTelephoneNo() {
+		return telephoneNo;
+	}
+	public void setTelephoneNo(String telephoneNo) {
+		this.telephoneNo = telephoneNo;
+	}
+	
+	
+	public String getImgPath() {
+		return imgPath;
+	}
+
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
+	}
+
+	public String getSchoolWebsite() {
+		return schoolWebsite;
+	}
+
+	public void setSchoolWebsite(String schoolWebsite) {
+		this.schoolWebsite = schoolWebsite;
+	}
+
+	@Override
+	public String toString() {
+		return "School [id=" + id + ", schoolName=" + schoolName + ", principalName=" + principalName + ", boardName="
+				+ boardName + ", schoolCategory=" + schoolCategory + ", location=" + location + ", telephoneNo="
+				+ telephoneNo + ", imgPath=" + imgPath + ", schoolWebsite=" + schoolWebsite + "]";
+	}
+
+	
+
+}

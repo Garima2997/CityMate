@@ -1,0 +1,105 @@
+package com.citymate.dto;
+
+import java.time.LocalDate;
+
+public class UserDTO  {
+	
+	private Integer userId;
+	private String name;
+	private String email;
+	private String phoneNum;
+	private LocalDate dob;
+	private String address;
+	private Events event;
+
+	public UserDTO() {
+		super();
+	}
+
+	public UserDTO( int userId, String name, String email, String phoneNum, LocalDate dob, String address) {
+		super();
+		this.userId = userId;
+		this.name = name;
+		this.email = email;
+		this.phoneNum = phoneNum;
+		this.dob = dob;
+		this.address = address;
+	}
+	
+	public Integer getUserId() {
+		return userId;
+	}
+
+
+	public void setUserId(Integer id) {
+		this.userId = id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+
+	public LocalDate getDob() {
+		return dob;
+	}
+
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	
+//	public int getEventId() {
+//		return eventId;
+//	}
+//
+//	public void setEventId(int eventId) {
+//		this.eventId = eventId;
+//	}
+//
+//	public Events getEvent() {
+//		return event;
+//	}
+//
+//	public void setEvent(Events event) {
+//		this.event = event;
+//	}
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", email=" + email + ", phoneNum=" + phoneNum + ", dob=" + dob + ", address="
+				+ address  + "]";
+	}
+	
+	
+	
+	
+	
+}

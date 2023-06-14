@@ -1,0 +1,13 @@
+package com.citymate.service;
+
+import com.citymate.dto.UserDTO;
+import com.citymate.pojos.User;
+
+public interface IUserService {
+	
+	UserDTO registerUser(User u);
+
+	UserDTO getUserDetailById(int userId);
+	
+	
+}
